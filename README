@@ -1,0 +1,15 @@
+Enats is an minimal erlang client module for connecting to a NATS Pub/Sub server.  It uses jsonerl's record_to_json and json_to_record for the communication that involve JSON.
+
+General Usage:
+Copy enats_client.erl, enats_raw_connection.erl and jsonerl.erl to your /src directory.  Copy jsonerl.hrl and enats_records.hrl to your /include directory.
+
+Create client
+enats_client:start_link().
+Initialize connection
+enats_client:connect({"localhost", 4222}, {"username", "password"}).
+Subscribe to a subject
+Sid = enats_client:subscribe("scooby.doo", fun (Subject, Message) -> io:format("Subject: ~s~nMessage: ~s~n", [Subject, Message]) end).
+Publish a message
+enats_client:publish("scooby.doo", "Where are you?").
+Disconnect from the server
+enats_client:disconnect().
