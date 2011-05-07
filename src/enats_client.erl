@@ -15,7 +15,7 @@
 -define(SERVER, ?MODULE).
 
 %% API
--export([start_link/1, connect/2, disconnect/0, receive_message/1, 
+-export([start_link/0, connect/2, disconnect/0, receive_message/1, 
          send_ping/0, subscribe/2, unsubscribe/1, publish/2]).
 
 %% gen_server callbacks
